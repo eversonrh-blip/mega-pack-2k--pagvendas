@@ -63,7 +63,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #c6ff00; outline-offs
   .offer-ribbon .container { min-height: 56px; padding-top: 8px; padding-bottom: 8px; line-height: 1.35; }
   nav { top: 56px !important; }
   .hero-grid { min-height: auto; background-size: 44px 44px; }
-  .hero-grid .container { min-height: auto; align-items: flex-start; padding-top: 92px; padding-bottom: 0; }
+  .hero-grid .container { min-height: auto; align-items: flex-start; padding-top: 34px; padding-bottom: 0; }
   .hero-grid .container > div { max-width: 100%; }
   .hero-grid h1 { font-size: clamp(3.25rem, 15vw, 5rem); }
   .hero-grid p { max-width: 340px; }

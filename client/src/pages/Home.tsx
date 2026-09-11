@@ -119,9 +119,6 @@ export default function Home() {
         <div className="hero-glow absolute right-0 top-72 -z-10 h-[420px] w-[420px] rounded-full bg-[#c6ff00]/12 blur-[120px]" />
         <div className="container relative z-10 flex min-h-[650px] items-center pb-20 pt-10 lg:pb-24 lg:pt-0">
           <div className="max-w-2xl lg:-mt-2">
-            <div className="eyebrow mb-6 inline-flex items-center gap-2 rounded-full border border-[#c6ff00]/25 bg-[#c6ff00]/8 px-3.5 py-2 text-[11px] font-black uppercase tracking-[0.18em] text-[#c6ff00]">
-              <Sparkles className="h-3.5 w-3.5" /> O kit de criação para quem quer sair do zero
-            </div>
             <h1 className="font-display text-5xl font-black uppercase leading-[0.92] tracking-[-0.055em] text-white sm:text-7xl lg:text-[88px]">
               Seu próximo vídeo viral <span className="text-[#c6ff00]">começa aqui.</span>
             </h1>
@@ -217,4 +214,3 @@ export default function Home() {
     </main>
   );
 }
-
