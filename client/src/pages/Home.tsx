@@ -119,19 +119,17 @@ export default function Home() {
         <div className="hero-glow absolute right-0 top-72 -z-10 h-[420px] w-[420px] rounded-full bg-[#c6ff00]/12 blur-[120px]" />
         <div className="container relative z-10 flex min-h-[650px] items-center pb-20 pt-10 lg:pb-24 lg:pt-0">
           <div className="max-w-2xl lg:-mt-2">
-            <div className="mobile-hero-badge">MEGA PACK <span>2K</span></div>
             <h1 className="font-display text-5xl font-black uppercase leading-[0.92] tracking-[-0.055em] text-white sm:text-7xl lg:text-[88px]">
               Seu próximo vídeo viral <span className="text-[#c6ff00]">começa aqui.</span>
             </h1>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg">
               2.000 vídeos do universo GTA 6 + uma caixa de ferramentas completa para transformar ideias em conteúdo com mais velocidade, consistência e personalidade.
             </p>
-            <div className="mobile-hero-price"><small>acesso completo por</small><strong>R$ 29<sup>,90</sup></strong></div>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
               <button onClick={scrollToOffer} className="button-lime group flex items-center justify-center gap-3 rounded-2xl px-7 py-4 text-sm font-black uppercase tracking-[0.12em]">
                 Quero o Mega Pack 2K <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
               </button>
-              <a href="#conteudo" className="mobile-secondary-cta group flex items-center justify-center gap-2 px-4 py-4 text-sm font-bold text-white/70 transition-colors hover:text-white">
+              <a href="#conteudo" className="group flex items-center justify-center gap-2 px-4 py-4 text-sm font-bold text-white/70 transition-colors hover:text-white">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 transition-colors group-hover:border-[#c6ff00] group-hover:text-[#c6ff00]"><Play className="ml-0.5 h-3 w-3 fill-current" /></span>
                 Ver o que está incluso
               </a>
@@ -142,9 +140,6 @@ export default function Home() {
               <span className="flex items-center gap-2"><Clock3 className="h-4 w-4 text-[#c6ff00]" /> Liberação rápida</span>
             </div>
           </div>
-        </div>
-        <div className="hero-mobile-image-wrap">
-          <img className="hero-mobile-image" src={heroImage} alt="Setup gamer com o mockup Mega Pack 2K sobre a mesa" />
         </div>
         <div className="hero-art absolute inset-0 -z-10 bg-cover bg-center lg:left-[28%]" style={{ backgroundImage: `linear-gradient(90deg, #08090c 0%, rgba(8,9,12,.94) 26%, rgba(8,9,12,.25) 65%, rgba(8,9,12,.45) 100%), linear-gradient(0deg, #08090c 0%, transparent 22%), url(${heroImage})` }} />
         <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#08090c] to-transparent" />
