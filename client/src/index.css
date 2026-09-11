@@ -57,6 +57,31 @@ button:focus-visible, a:focus-visible { outline: 2px solid #c6ff00; outline-offs
 .eyebrow { animation: rise .6s both; }
 .section-kicker { color: #c6ff00; font-size: 11px; font-weight: 900; letter-spacing: .22em; text-transform: uppercase; }
 
+/* On narrow screens the copy and product visual get distinct zones so the mockup remains fully visible. */
+@media (max-width: 767px) {
+  .offer-ribbon { min-height: 56px; }
+  .offer-ribbon .container { min-height: 56px; padding-top: 8px; padding-bottom: 8px; line-height: 1.35; }
+  nav { top: 56px !important; }
+  .hero-grid { min-height: auto; background-size: 44px 44px; }
+  .hero-grid .container { min-height: auto; align-items: flex-start; padding-top: 92px; padding-bottom: 0; }
+  .hero-grid .container > div { max-width: 100%; }
+  .hero-grid h1 { font-size: clamp(3.25rem, 15vw, 5rem); }
+  .hero-grid p { max-width: 340px; }
+  .hero-art {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: 0 !important;
+    height: 540px;
+    margin-top: 30px;
+    background-size: auto 100%;
+    background-position: 64% center !important;
+    background-image: linear-gradient(180deg, #08090c 0%, rgba(8,9,12,.08) 18%, rgba(8,9,12,.06) 70%, #08090c 100%), url('/manus-storage/mega-pack-hero-mockup_87659195.png') !important;
+  }
+  .hero-grid .pointer-events-none { display: none; }
+}
+
 .content-card, .bonus-card { position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.09); background: linear-gradient(135deg, rgba(255,255,255,.055), rgba(255,255,255,.018)); border-radius: 1.5rem; padding: 1.5rem; transition: transform .25s cubic-bezier(.23,1,.32,1), border-color .25s ease, background .25s ease; }
 .content-card:hover, .bonus-card:hover { transform: translateY(-5px); border-color: rgba(198,255,0,.35); background: linear-gradient(135deg, rgba(198,255,0,.07), rgba(255,255,255,.025)); }
 .content-card-feature { min-height: 280px; background: linear-gradient(118deg, rgba(111,44,255,.18), rgba(255,255,255,.025) 65%); }
