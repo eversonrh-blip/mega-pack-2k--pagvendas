@@ -23,7 +23,7 @@ import {
   Zap,
 } from "lucide-react";
 
-const heroImage = "/manus-storage/mega-pack-hero_26bd9c49.jpg";
+const heroImage = "/manus-storage/mega-pack-hero-mockup_87659195.png";
 
 const bonuses = [
   {
