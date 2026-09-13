@@ -224,7 +224,6 @@ export default function Home() {
             <p className="section-kicker">01 / O conteúdo</p>
             <h2 className="font-display mt-5 text-4xl font-black uppercase leading-[0.96] tracking-[-0.04em] sm:text-6xl">Tudo o que você precisa para <span className="text-[#c6ff00]">criar mais.</span></h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-white/55">Menos tempo procurando referência. Mais tempo publicando, testando e construindo um canal com a sua cara.</p>
-            <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-white/70"><Crown className="h-5 w-5 text-[#c6ff00]" /> Um pacote para pensar, produzir e evoluir.</div>
           </div>
           <VideoCarousel />
         </div>
