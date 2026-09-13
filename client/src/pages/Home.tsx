@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   BadgeCheck,
@@ -24,6 +24,67 @@ import {
 } from "lucide-react";
 
 const heroImage = "/manus-storage/mega-pack-hero-mockup_87659195.png";
+
+const carouselVideos = [
+  { video: "/manus-storage/VideoGTA-1_7b5fc5a2.mp4", poster: "/manus-storage/gta-1_8931f4f6.jpg", label: "Vídeo 1" },
+  { video: "/manus-storage/vIDEOgta2_6feae88a.mp4", poster: "/manus-storage/gta-2_0afe1f8d.jpg", label: "Vídeo 2" },
+  { video: "/manus-storage/VideoGTA3_a0b58021.mp4", poster: "/manus-storage/gta-3_670ba238.jpg", label: "Vídeo 3" },
+];
+
+function VideoCarousel() {
+  const [active, setActive] = useState(0);
+  const [playing, setPlaying] = useState(false);
+  const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
+  const touchStart = useRef<number | null>(null);
+
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (index !== active && video) {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }, [active]);
+
+  const goTo = (index: number) => { setPlaying(false); setActive((index + carouselVideos.length) % carouselVideos.length); };
+  const playActive = () => { const video = videoRefs.current[active]; if (video) { void video.play(); setPlaying(true); } };
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => { touchStart.current = event.touches[0]?.clientX ?? null; };
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStart.current === null) return;
+    const distance = event.changedTouches[0].clientX - touchStart.current;
+    if (Math.abs(distance) > 45) goTo(active + (distance < 0 ? 1 : -1));
+    touchStart.current = null;
+  };
+
+  return (
+    <div className="video-carousel-wrap" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+      <div className="video-carousel" aria-label="Carrossel de vídeos do Mega Pack 2K">
+        {carouselVideos.map((item, index) => {
+          const offset = (index - active + carouselVideos.length) % carouselVideos.length;
+          const isActive = index === active;
+          return (
+            <article key={item.video} className={`video-slide ${isActive ? "is-active" : ""} ${offset === 1 ? "is-next" : offset === carouselVideos.length - 1 ? "is-prev" : "is-hidden"}`}>
+              <video ref={(element) => { videoRefs.current[index] = element; }} className="video-slide-media" controls={isActive} playsInline preload="metadata" poster={item.poster} aria-label={item.label} onPlay={() => isActive && setPlaying(true)} onPause={() => isActive && setPlaying(false)} onEnded={() => isActive && setPlaying(false)}>
+                <source src={item.video} type="video/mp4" />
+                Seu navegador não suporta vídeo HTML5.
+              </video>
+              {isActive && !playing && <button className="video-play-button" onClick={playActive} aria-label={`Reproduzir ${item.label}`}><Play className="ml-1 h-7 w-7 fill-current" /></button>}
+              {!isActive && <button className="video-slide-hit" onClick={() => setActive(index)} aria-label={`Abrir ${item.label}`} />}
+              {isActive && <span className="video-slide-label">{item.label}</span>}
+            </article>
+          );
+        })}
+        <button className="carousel-arrow carousel-arrow-left" onClick={() => goTo(active - 1)} aria-label="Vídeo anterior"><ArrowRight className="h-5 w-5 rotate-180" /></button>
+        <button className="carousel-arrow carousel-arrow-right" onClick={() => goTo(active + 1)} aria-label="Próximo vídeo"><ArrowRight className="h-5 w-5" /></button>
+      </div>
+      <div className="carousel-dots" role="tablist" aria-label="Selecionar vídeo">
+        {carouselVideos.map((item, index) => <button key={item.label} className={`carousel-dot ${active === index ? "is-active" : ""}`} onClick={() => setActive(index)} aria-label={`Ir para ${item.label}`} aria-selected={active === index} role="tab" />)}
+      </div>
+      <p className="carousel-caption">Conteúdos prontos para você criar mais, em menos tempo.</p>
+      <button onClick={scrollToOffer} className="button-lime carousel-cta">QUERO TER ACESSO A TUDO <ArrowRight className="h-4 w-4" /></button>
+    </div>
+  );
+}
 
 const bonuses = [
   {
@@ -165,17 +226,7 @@ export default function Home() {
             <p className="mt-6 max-w-md text-base leading-relaxed text-white/55">Menos tempo procurando referência. Mais tempo publicando, testando e construindo um canal com a sua cara.</p>
             <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-white/70"><Crown className="h-5 w-5 text-[#c6ff00]" /> Um pacote para pensar, produzir e evoluir.</div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="content-card content-card-feature sm:col-span-2">
-              <div className="flex items-start justify-between gap-4"><span className="card-icon"><Film className="h-6 w-6" /></span><span className="card-number">01</span></div>
-              <h3 className="font-display mt-10 text-3xl font-black uppercase tracking-tight">Mega Pack de vídeos GTA 6</h3>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/55">Uma biblioteca com 2.000 vídeos para você encontrar cenas, referências e ideias para o seu próximo conteúdo.</p>
-              <div className="mt-6 flex flex-wrap gap-2"><span className="mini-pill">2.000 arquivos</span><span className="mini-pill">Referências visuais</span><span className="mini-pill">Organizado para criar</span></div>
-              <div className="feature-scan" />
-            </div>
-            <div className="content-card"><span className="card-icon"><BarChart3 className="h-6 w-6" /></span><h3 className="font-display mt-8 text-2xl font-black uppercase tracking-tight">Conteúdo que acompanha tendências</h3><p className="mt-3 text-sm leading-relaxed text-white/50">Use o universo gamer como ponto de partida para explorar formatos, ganchos e estilos diferentes.</p></div>
-            <div className="content-card"><span className="card-icon"><Rocket className="h-6 w-6" /></span><h3 className="font-display mt-8 text-2xl font-black uppercase tracking-tight">Produção mais rápida</h3><p className="mt-3 text-sm leading-relaxed text-white/50">Tenha matéria-prima, templates e prompts reunidos em um único lugar para reduzir o atrito.</p></div>
-          </div>
+          <VideoCarousel />
         </div>
       </section>
 
