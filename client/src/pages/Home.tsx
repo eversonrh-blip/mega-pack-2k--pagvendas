@@ -122,6 +122,7 @@ export default function Home() {
             <h1 className="font-display text-5xl font-black uppercase leading-[0.92] tracking-[-0.055em] text-white sm:text-7xl lg:text-[88px]">
               Seu próximo vídeo viral <span className="text-[#c6ff00]">começa aqui.</span>
             </h1>
+            <img className="mobile-headline-art" src="/manus-storage/Designsemnome(1)_e7664eef.png" alt="Mega Pack 2K com bônus e vídeos virais" />
             <p className="mt-7 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg">
               2.000 vídeos do universo GTA 6 + uma caixa de ferramentas completa para transformar ideias em conteúdo com mais velocidade, consistência e personalidade.
             </p>

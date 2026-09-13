@@ -56,6 +56,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #c6ff00; outline-offs
 .hero-glow { animation: drift 9s ease-in-out infinite alternate; }
 .eyebrow { animation: rise .6s both; }
 .section-kicker { color: #c6ff00; font-size: 11px; font-weight: 900; letter-spacing: .22em; text-transform: uppercase; }
+.mobile-headline-art { display: none; }
 
 /* On narrow screens the copy and product visual get distinct zones so the mockup remains fully visible. */
 @media (max-width: 767px) {
@@ -67,6 +68,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #c6ff00; outline-offs
   .hero-grid .container > div { max-width: 100%; }
   .hero-grid h1 { font-size: clamp(3.25rem, 15vw, 5rem); }
   .hero-grid p { max-width: 340px; }
+  .mobile-headline-art { display: block; width: min(100%, 340px); height: auto; margin: 16px auto 2px; object-fit: contain; }
   .hero-art {
     position: relative;
     top: auto;
