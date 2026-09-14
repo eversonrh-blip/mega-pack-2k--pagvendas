@@ -82,6 +82,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #c6ff00; outline-offs
     background-image: linear-gradient(180deg, #08090c 0%, rgba(8,9,12,.08) 18%, rgba(8,9,12,.06) 70%, #08090c 100%), url('/manus-storage/mega-pack-hero-mockup_87659195.png') !important;
   }
   .hero-grid .pointer-events-none { display: none; }
+  #conteudo .video-carousel-wrap { margin-top: -36px; }
   .video-carousel { height: 468px; margin: 0 -8px; }
   .video-slide { width: min(72vw, 270px); height: min(128vw, 420px); }
   .video-slide.is-active { width: min(76vw, 286px); height: min(135vw, 446px); }
