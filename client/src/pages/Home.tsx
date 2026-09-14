@@ -152,9 +152,22 @@ export default function Home() {
 
   return (
     <main className="overflow-hidden bg-[#08090c] text-white selection:bg-[#c6ff00] selection:text-[#08090c]">
-      <div className="offer-ribbon">
-        <div className="container flex items-center justify-center gap-2 py-2 text-center text-[11px] font-bold uppercase tracking-[0.18em] text-[#08090c] sm:text-xs">
-          <Flame className="h-3.5 w-3.5" /> Condição especial de lançamento: acesso completo por apenas R$ 29,90
+      <div className="offer-ribbon marquee-ribbon" role="region" aria-label="Recursos do Mega Pack 2K">
+        <div className="marquee-viewport">
+          <div className="marquee-track">
+            {[0, 1].map((copy) => (
+              <div className="marquee-sequence" key={copy} aria-hidden={copy === 1}>
+                <span>SEM MARCA D&apos;ÁGUA</span><i>•</i>
+                <span>NARRAÇÃO PRONTA</span><i>•</i>
+                <span>EDIÇÃO FEITA</span><i>•</i>
+                <span>CORTES VIRAIS</span><i>•</i>
+                <span>TRAILERS</span><i>•</i>
+                <span>VAZAMENTOS</span><i>•</i>
+                <span>100% PRONTO</span><i>•</i>
+                <span>+2000 VÍDEOS PRONTOS</span><i>•</i>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -197,11 +210,6 @@ export default function Home() {
                 <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 transition-colors group-hover:border-[#c6ff00] group-hover:text-[#c6ff00]"><Play className="ml-0.5 h-3 w-3 fill-current" /></span>
                 Ver o que está incluso
               </a>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-xs font-semibold text-white/50">
-              <span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-[#c6ff00]" /> Compra segura</span>
-              <span className="flex items-center gap-2"><Download className="h-4 w-4 text-[#c6ff00]" /> Acesso digital</span>
-              <span className="flex items-center gap-2"><Clock3 className="h-4 w-4 text-[#c6ff00]" /> Liberação rápida</span>
             </div>
           </div>
         </div>
