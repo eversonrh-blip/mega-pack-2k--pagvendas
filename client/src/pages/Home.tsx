@@ -29,6 +29,8 @@ const carouselVideos = [
   { video: "/manus-storage/VideoGTA-1_7b5fc5a2.mp4", poster: "/manus-storage/gta-1_8931f4f6.jpg", label: "Vídeo 1" },
   { video: "/manus-storage/vIDEOgta2_6feae88a.mp4", poster: "/manus-storage/gta-2_0afe1f8d.jpg", label: "Vídeo 2" },
   { video: "/manus-storage/VideoGTA3_a0b58021.mp4", poster: "/manus-storage/gta-3_670ba238.jpg", label: "Vídeo 3" },
+  { video: "/manus-storage/vIDEOgta4_ffab0b98.mp4", poster: "/manus-storage/gta-4_f7c3b4a7.jpg", label: "Vídeo 4" },
+  { video: "/manus-storage/Videogta5_57653bfc.mp4", poster: "/manus-storage/gta-5_6f1cf13c.jpg", label: "Vídeo 5" },
 ];
 
 function VideoCarousel() {
